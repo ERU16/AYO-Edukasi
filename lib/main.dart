@@ -10,6 +10,7 @@ import 'package:shimmer/shimmer.dart';
 
 import 'models/user.dart';
 import 'screens/splash_screen.dart';
+import 'utils/constants.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -104,32 +105,33 @@ class _MyAppState extends State<MyApp> {
       title: 'AYO Edukasi',
       theme: ThemeData(
         fontFamily: 'Baloo',
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5), // abu muda
-        primaryColor: const Color(0xFF81C784), // hijau cerah
+        scaffoldBackgroundColor: AppColors.background, // abu muda
+        primaryColor: AppColors.primary, // hijau cerah
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xFF81C784),
-          secondary: const Color(0xFF4FC3F7), // biru muda
+          primary: AppColors.primary,
+          secondary: AppColors.secondary, // biru muda
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF81C784),
+          backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           centerTitle: true,
           elevation: 4,
+          titleTextStyle: AppTextStyles.heading,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF81C784),
-            foregroundColor: Colors.white,
-            textStyle: const TextStyle(fontSize: 16),
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.white,
+            textStyle: AppTextStyles.button,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(12)),
             ),
           ),
         ),
         textTheme: const TextTheme(
-          bodyMedium: TextStyle(fontSize: 16),
-          titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          bodyMedium: AppTextStyles.body,
+          titleLarge: AppTextStyles.heading,
         ),
       ),
       home: const SplashScreen(),
@@ -169,7 +171,8 @@ class GlobalShimmerList extends StatelessWidget {
 class GlobalShimmerCard extends StatelessWidget {
   final double width;
   final double height;
-  const GlobalShimmerCard({this.width = double.infinity, this.height = 120, super.key});
+  const GlobalShimmerCard(
+      {this.width = double.infinity, this.height = 120, super.key});
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(

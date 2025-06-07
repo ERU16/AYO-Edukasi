@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'login_screen.dart';
+import '../utils/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,34 +26,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[300], // warna hijau cerah
+      backgroundColor: AppColors.primary, // warna hijau cerah
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Shimmer.fromColors(
-              baseColor: Colors.white,
-              highlightColor: Colors.green[100]!,
-              child:
-                  const Icon(Icons.child_care, size: 100, color: Colors.white),
+              baseColor: AppColors.white,
+              highlightColor: AppColors.secondary.withOpacity(0.3),
+              child: const Icon(Icons.child_care,
+                  size: 100, color: AppColors.white),
             ),
             const SizedBox(height: 20),
             Shimmer.fromColors(
-              baseColor: Colors.white,
-              highlightColor: Colors.green[100]!,
+              baseColor: AppColors.white,
+              highlightColor: AppColors.secondary.withOpacity(0.3),
               child: const Text(
                 'AYO Edukasi',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: AppTextStyles.heading,
               ),
             ),
             const SizedBox(height: 10),
             const Text(
               'Belajar itu menyenangkan!',
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              style: AppTextStyles.body,
             ),
           ],
         ),

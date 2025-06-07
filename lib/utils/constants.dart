@@ -16,7 +16,7 @@ class AppTextStyles {
     fontFamily: 'Baloo',
     fontSize: 28,
     fontWeight: FontWeight.bold,
-    color: AppColors.primary,
+    color: AppColors.white,
   );
 
   static const TextStyle body = TextStyle(

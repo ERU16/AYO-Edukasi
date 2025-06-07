@@ -7,6 +7,7 @@ import 'edit_profile_screen.dart'; // Pastikan untuk mengimpor EditProfileScreen
 import 'feedback_screen.dart'; // Pastikan untuk mengimpor FeedbackScreen
 import 'package:geolocator/geolocator.dart';
 import 'package:shimmer/shimmer.dart';
+import '../utils/constants.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -111,8 +112,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil Pengguna'),
+        title: const Text('Profil Pengguna', style: AppTextStyles.heading),
         centerTitle: true,
+        backgroundColor: AppColors.primary,
         actions: [
           IconButton(
             icon: const Icon(Icons.feed_outlined, color: Colors.orangeAccent),
@@ -143,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Center(
                 child: CircleAvatar(
                   radius: 60,
-                  backgroundColor: Colors.lightBlue[100],
+                  backgroundColor: AppColors.secondary,
                   backgroundImage: profileImage != null
                       ? FileImage(File(profileImage!))
                       : const AssetImage('assets/default_profile.png')
@@ -153,15 +155,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 18),
               Text(
                 username != null ? username! : '-',
-                style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple),
+                style: AppTextStyles.heading
+                    .copyWith(fontSize: 26, color: Colors.deepPurple),
               ),
               const SizedBox(height: 8),
               const Text(
                 'Akun Edukasi Anak',
-                style: TextStyle(fontSize: 16, color: Colors.blueGrey),
+                style: AppTextStyles.body,
               ),
               const SizedBox(height: 18),
               Row(
@@ -203,15 +203,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF1F8E9),
+                  color: AppColors.background,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.green.shade100),
+                  border: Border.all(color: AppColors.primary.withOpacity(0.2)),
                 ),
                 child: Text(
                   (description != null && description!.isNotEmpty)
                       ? description!
                       : '-',
-                  style: const TextStyle(fontSize: 15),
+                  style: AppTextStyles.body,
                 ),
               ),
               const SizedBox(height: 24),
@@ -225,10 +225,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   if (updated == true) _loadUserProfile();
                 },
                 icon: const Icon(Icons.edit),
-                label: const Text('Edit Profil'),
+                label: const Text('Edit Profil', style: AppTextStyles.button),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.secondary,
+                  foregroundColor: AppColors.white,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
                   shape: RoundedRectangleBorder(
@@ -247,11 +247,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 10),
               ElevatedButton.icon(
                 onPressed: _getCurrentLocation,
-                icon: const Icon(Icons.my_location, color: Colors.blue),
-                label: const Text('Tampilkan Lokasi Saya'),
+                icon: const Icon(Icons.my_location, color: AppColors.secondary),
+                label: const Text('Tampilkan Lokasi Saya',
+                    style: AppTextStyles.button),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightBlue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: AppColors.accentYellow,
+                  foregroundColor: AppColors.white,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   shape: RoundedRectangleBorder(

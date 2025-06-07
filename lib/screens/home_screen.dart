@@ -3,6 +3,7 @@ import 'animal_screen.dart';
 import 'currency_converter_screen.dart';
 import 'time_converter_screen.dart';
 import 'profile_screen.dart'; // Import ProfileScreen
+import '../utils/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
