@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578113770697",
+    "project_id": "project-teori",
+    "storage_bucket": "project-teori.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578113770697:android:8e8541e86f3748109ca918",
+        "android_client_info": {
+          "package_name": "com.example.project_teori"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbjHn7XD1zlGj3F69UIQ3qQwYN9oCAEFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
